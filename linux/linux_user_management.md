@@ -1,4 +1,4 @@
-#Linux user management
+# Linux user management
 
 ## important files:
 - **/etc/passwd**	: user information
