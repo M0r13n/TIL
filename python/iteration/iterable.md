@@ -32,3 +32,23 @@ class IterableThing:
         # required!
         raise StopIteration
 ```
+
+# Generators
+- is also an iterator
+- does not know about the past and only knows what happens next
+- use this if it's unimportant what state we are in
+
+```python
+class GeneratorThing:
+    def __init__(self):
+        self.values = range(1, 6)
+
+    def __getitem__(self, index):
+        return self.values[index]
+
+    def __iter__(self):
+        for i in self.values:
+            if not i % 2: # yield only even values
+                yield i
+
+``
