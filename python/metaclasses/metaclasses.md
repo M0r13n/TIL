@@ -2,7 +2,9 @@
 - constructed using `__type__`
 
 ## Basics about Python and it's objects
-- the **class** statement if **only** syntactic sugar and it **NOT** needed
+- the **class** statement if **only** syntactic sugar and it **NOT** needed 
+- that means that classes can be created via **function calls**!!
+- classes that create classes are called **metaclasses**
 
 ```python
 def foo_new(cls):
@@ -32,5 +34,34 @@ Foo = type('Foo',
 foo = Foo()
 print(foo.value)
 foo.some_method()
+
+```
+
+So one can do things like
+
+```python
+class FooMeta(type):
+
+    def __new__(mclass, name, base, ns):
+        print("i build a class of", mclass)
+        print("with name=", name)
+        print("with bases=", base)
+        print("with namespace=", ns)
+
+        cls = super().__new__(mclass, name, base, ns)
+        print("constructed class ", cls)
+        return cls
+
+    def __init__(mclass, name, base, ns):
+        super().__init__(mclass)
+        print("init")
+
+
+class Foo(metaclass=FooMeta):
+    pass
+
+
+class Bar(Foo):
+    pass
 
 ```
