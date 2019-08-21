@@ -1,0 +1,3 @@
+# CSP
+- for scripts that are included on the html page a nonce is required
+- inline scripts are not possible, e.g. onlick=...
