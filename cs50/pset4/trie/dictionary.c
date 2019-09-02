@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "dictionary.h"
 #include <ctype.h>
+#include <string.h>
 
 // Represents a trie
 node *root;
@@ -38,15 +39,15 @@ bool load(const char *dictionary)
         i = 0;
         while (1)
         {
-            c_pos = pos(word[i]);
+            c_pos = pos(&word[i]);
 
             // Current character node has not yet been visited and therefore needs to be inserted
-            if (cur->children[c_pos] == NULL)
+            if (cur->children[c_pos] == 0)
             {
                 cur->children[c_pos] = create_node(cur->children[c_pos]);
 
                 // Memory Allocation went wrong
-                if (cur->children[c_pos] == NULL)
+                if (cur->children[c_pos] == 0)
                 {
                     word_count = 0;
                     return false;
@@ -92,13 +93,13 @@ bool check(const char *word)
     // Loop over each word and check if there is a path in the trie
     while (1)
     {
-        c_pos = pos(word[i]);
+        c_pos = pos(&word[i]);
 
         // There may be some weird characters. Catch them!
         if ((c_pos < 0) || (c_pos > N))
             return false;
 
-        if (cur->children[c_pos] == NULL)
+        if (!cur->children[c_pos])
         {
             return false;
         }
@@ -125,13 +126,13 @@ bool unload(void)
 // ############ Utility Methods ############
 
 // Get numeric representation of a character
-unsigned int pos(char c)
+unsigned int pos(const char *c)
 {
-    if (c == '\'')
+    if (*c == '\'')
     {
         return N - 1;
     }
-    return tolower(c) - 'a';
+    return tolower(*c) - 'a';
 }
 
 // Try to create a new node. Return NULL if memory allocation had a problem
@@ -147,10 +148,10 @@ node *create_node(node *ptr)
 
     // Initialize node
     ptr->is_word = false;
-    for (int i = 0; i < N; i++)
-    {
-        ptr->children[i] = NULL;
-    }
+
+    // Memset is faster than looping
+    memset(ptr->children, 0, sizeof(ptr->children));
+
     return ptr;
 }
 
@@ -162,7 +163,7 @@ node *free_node(node *ptr)
         // First free every child, before free the node itself
         for (int i = 0; i < N; i++)
         {
-            if (ptr->children[i] != NULL)
+            if (ptr->children[i])
             {
                 free_node(ptr->children[i]);
             }

@@ -29,7 +29,7 @@ bool check(const char *word);
 
 bool unload(void);
 
-unsigned int pos(char c);
+unsigned int pos(const char *c);
 
 node *free_node(node *ptr);
 
