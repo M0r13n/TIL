@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="col-md4">
+    <form action="/compare" enctype="multipart/form-data" method="post">
+        <!-- Input file 1-->
+        <div class="form-group">
+            <label for="file1">File #1</label>
+            <input type="file" name="file1" class="form-control-file" id="file1">
+        </div>
+        <!-- Input file 2-->
+        <div class="form-group">
+            <label for="file2">File #2</label>
+            <input type="file" name="file2" class="form-control-file" id="file2">
+        </div>
+        <!-- Algorithm selection -->
+        <div class="form-group">
+            <label for="algorithm">Algorithm</label>
+            <select class="form-control" id="algorithm" name="algorithm">
+                <option>lines</option>
+                <option>sentences</option>
+                <option>substrings</option>
+            </select>
+        </div>
+        <!-- File length -->
+        <div class="form-group">
+            <label for="length">Length</label>
+            <input type="number" class="form-control" id="length" name="length">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+
+{% endblock %}

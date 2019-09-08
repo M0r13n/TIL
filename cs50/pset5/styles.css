@@ -1,0 +1,23 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.content{
+    padding-bottom: 60px;
+}
+.about {
+    margin-top: 100px;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.avatar {
+    width: 200px;
+    height: auto;
+    padding: 10px;
+}
+
+.text{
+    margin-top: 10px;
+    font-size: 125%;
+}

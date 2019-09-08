@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block main %}
+<form action="#" method=post oninput='confirmation.setCustomValidity(password.value != confirmation.value ? "Passwords do not match." : "")'>
+    <div class="form-group">
+        <input id="username" name="username" autofocus class="form-control" type=text required minlength="2" maxlength="128" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input id="password" class="form-control" type=password required name=password minlength="2" maxlength="128" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <input id="confirmation" class="form-control" type=password name=confirmation minlength="2" maxlength="128" placeholder="Password Confirmation">
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+
+{% endblock %}

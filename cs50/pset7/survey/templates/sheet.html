@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<!--Basic table-->
+<table class="table" id="sheet_table">
+    <thead>
+    <!--Table header -->
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">House</th>
+        <th scope="col">Position</th>
+    </tr>
+    </thead>
+
+    <!--Table content -->
+    <tbody>
+    <!-- Iterate over every item inside rows and add their values-->
+    {% for row in rows %}
+    <tr>
+        <th scope="row">#{{ loop.index }}</th>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
