@@ -5,7 +5,7 @@ Register
 {% endblock %}
 
 {% block main %}
-<form action="#" method=post oninput='confirmation.setCustomValidity(password.value != confirmation.value ? "Passwords do not match." : "")'>
+<form action="#" method=post id="form" oninput='confirmation.setCustomValidity(password.value != confirmation.value ? "Passwords do not match." : "")'>
     <div class="form-group">
         <input id="username" name="username" autofocus class="form-control" type=text required minlength="2" maxlength="128" placeholder="Username">
     </div>
@@ -15,7 +15,21 @@ Register
     <div class="form-group">
         <input id="confirmation" class="form-control" type=password name=confirmation minlength="2" maxlength="128" placeholder="Password Confirmation">
     </div>
-    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-primary" type="submit" id="registerBtn">Register</button>
 </form>
+<script>
+    document.getElementById("form").addEventListener('submit', form_submit);
 
+    function form_submit(event) {
+        event.preventDefault();
+        $.get('/check?username=' + $("#username").val(), function (response) {
+                if (response === true) {
+                    $("#form").submit();
+                } else {
+                    alert("Username already taken");
+                }
+            }
+        );
+    }
+</script>
 {% endblock %}
