@@ -3,7 +3,7 @@
 - One cannot merge commands or chain them together, as known from other languages
 - The can be multiple hotkeys in **one single file**
 - commands can be written with `;`
-- as every language it's interpreted Top-To-Bottom
+- as most scripting languages it's interpreted Top-To-Bottom
 
 ## Structure
 A hotkey is defined by `::`, where the **key combo** (trigger) goes on the **left**.
