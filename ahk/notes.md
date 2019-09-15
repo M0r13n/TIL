@@ -10,7 +10,7 @@ A hotkey is defined by `::`, where the **key combo** (trigger) goes on the **lef
 The actual code or content goes **below** those double points and needs to be followed by a `return`. 
 A simple hotkey looks like this:
 
-'''ahk
+'''
 ^j::
 Send, My First Script
 return
