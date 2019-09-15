@@ -10,11 +10,11 @@ A hotkey is defined by `::`, where the **key combo** (trigger) goes on the **lef
 The actual code or content goes **below** those double points and needs to be followed by a `return`. 
 A simple hotkey looks like this:
 
-'''
+```ahk
 ^j::
 Send, My First Script
 return
-'''
+```
 
 ## Hotstrings
 Hotstrings are used to either expand text (ftw -> For the win) or to launch custom scripts.
@@ -23,11 +23,11 @@ Hotstrings are used to either expand text (ftw -> For the win) or to launch cust
 A Hotstring has double colons on **both side** (`::btw::`) and the text to replace, goes on the **right**.
 Example: `::btw::By The Way`. They can also act as triggers for custom scripts, like:
 
-'''ahk
+```ahk
 ::btw::
 MsgBox, You typed btw.
 return
-'''
+```
 
 ### Key Mappings
 
