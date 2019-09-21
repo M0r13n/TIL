@@ -3,7 +3,7 @@
 - One cannot merge commands or chain them together, as known from other languages
 - The can be multiple hotkeys in **one single file**
 - commands can be written with `;`
-- as most scripting languages it's interpreted Top-To-Bottom
+- as most (scripting) languages it's interpreted Top-To-Bottom
 
 ## Structure
 A hotkey is defined by `::`, where the **key combo** (trigger) goes on the **left**.
@@ -33,11 +33,11 @@ return
 
 | Tables        | Are           |
 | ------------- |:-------------:|
-| #	   | WIN |
-| !	   | ALT |
-| ^	   | CTRL |
-| +	   | SHIFT |
-| &	   | COMBINE |
+| #			    | WIN 			|
+| !			    | ALT 			|
+| ^			    | CTRL 			|
+| +			    | SHIFT 		|
+| &			    | COMBINE 		|
 
 - '&' requires the previous keys to be hold, before pressing the second key
 - '&' only is able to combine **2** triggers, for more I can use things like `If GetKeyState("Shift","p")`
@@ -48,12 +48,28 @@ return
 - ** {} ** dont't work as hotkeys
 - Curly brackets may be useful, when I actually want to send the exclamation point **!** (`{!}`) and not press **ALT**. 
 - examples:
-- `Send, {Ctrl down}c{Ctrl up}`
-- `Send, ^s`
-- `Sleep, 1000      ; Keep the above pressed key down for one second.`
+	- `Send, {Ctrl down}c{Ctrl up}`
+	- `Send, ^s`
+	- `Sleep, 1000      ; Keep the above pressed key down for one second.`
 - for long commands use normal brackets `()`
 - see also : SendRaw, SendInput, SendPlay, SendEvent
 
-# Variables
+### Variables
 - defined with :=
 - access value with `%MyVar2%`
+
+
+### Includes and Libraries
+
+##### Libraries 
+- libraries are searched if an undefined function gets called
+- there are three library directories:
+	- %A_ScriptDir%\Lib\  ; Local library - requires [v1.0.90+].
+	- %A_MyDocuments%\AutoHotkey\Lib\  ; User library.
+	- directory-of-the-currently-running-AutoHotkey.exe\Lib\  ; Standard library.
+- only direct calls are included automatically. For dynamic calls, use #Include <FunctionName>
+
+
+##### Include[Again]
+- causes the script to behave as though the specified file's content is present at the exact position
+- #Include[Again] FileOrDirName | <LibName>
