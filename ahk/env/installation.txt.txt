@@ -1,8 +1,0 @@
-Place AutoHotKey Autocompletion file in:
-
-"C:\Program Files\Notepad++\autoCompletion"
-
-
-Import Syntaxhighlighting file into Notepad
-
-
