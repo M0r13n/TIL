@@ -1,50 +1,32 @@
-//
-// Created by Leon Morten Richter on 13.09.19.
-//
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
 int
-main(int argc, char *argv[])
+main (int argc, char *argv[])
 {
-    // printf("Testing%n",&test);
-    // schreibt den Wert 6 an die Adresse von Test
+  char buf[128];
+  char x;
+  char *px = &x;
 
+  *px = 100;
 
-    char buf[128]; // this a pointer
-    int x;
-    int *px = &x;
+  if (argc != 2) {
+    printf ("Braucht ein Argument!\n");
+    exit (1);
+  }
 
-    *px = 100;
+  printf (argv[1]);
+  putchar('\n');
 
-    // -100 = 0xffff + 0xff9c
-    // we need to achieve something like this
-    *px = 0xff9c;
-    *(long *) (((long) &x) + 0x02) = 0xffff;
-    printf("x = %d\n", x);
-    // end
+  printf ("x = %d\n", x);
+  printf ("Eingabe: ");
+  fflush (stdout);
 
+  if (fgets (buf, sizeof buf, stdin))
+    printf (buf);
+    
+  printf ("x = %d\n", x);
 
-    if (argc != 2)
-    {
-        printf("Braucht ein Argument!\n");
-        exit(1);
-    }
-
-    printf(argv[1]); // vulnerable
-    putchar('\n');
-
-
-    printf("x = %d\n", x);
-    printf("Eingabe: ");
-    fflush(stdout);
-
-    if (fgets(buf, sizeof buf, stdin)) // reads 128 bytes from stdin and stores it in buf <-> no buffer overflow
-        printf(buf); // vulnerable
-
-    printf("x = %d\n", x);
-
-    return 0;
+  return 0;
 }

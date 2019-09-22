@@ -1,6 +1,6 @@
 Dump of assembler code for function main:  
 
-   0x00000000004005e0 <+0>:     push   %rbp								# init  
+   0x00000000004005e0 <+0>:     push   %rbp								  # init  
    0x00000000004005e1 <+1>:     mov    %rsp,%rbp  
    0x00000000004005e4 <+4>:     sub    $0x40,%rsp  
    0x00000000004005e8 <+8>:     movl   $0x0,-0x4(%rbp)  
