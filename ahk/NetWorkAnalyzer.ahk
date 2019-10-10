@@ -5,58 +5,53 @@ Nearly every functionality is based on the MIB_IFROW2  Struct.
 
 __________________________________________________________________________________________
  
-  STRUCTURE MIB_IFROW2 ( MSDN http://goo.gl/Fufv7m )
+  STRUCTURE MIB_IFROW2 ( MSDN https://docs.microsoft.com/de-de/windows/win32/api/netioapi/ns-netioapi-mib_if_row2?redirectedfrom=MSDN)
+| Offset 	| Size 	| Type   	| Description             		    	| Notes          	
+|--------	|------	|--------	|-----------------------------	|----------------	
+| 0      		| 8    	| INT64  	| InterfaceLuid               			|                	
+| 8   		   	| 4    	| UINT   	| InterfaceIndex          		    	|                	
+| 12   	  	| 16   	| GUID   	| InterfaceGuid          		     	|                	
+| 28   	  	| 514  	| WSTR   	| Alias                       				|                	
+| 542    	| 514  	| WSTR   	| Description                		 	|                	
+| 1056   	| 4    	| UINT   	| PhysicalAddressLength       	|                	
+| 1060   	| 32   	| BYTE   	| PhysicalAddress             		|                	
+| 1092   	| 32   	| BYTE   	| PermanentPhysicalAddress   |                	
+| 1124   	| 4    	| UINT   	| Mtu                         				|                	
+| 1128   	| 4    	| UINT   	| Type ( IFTYPE )           		  	|                	
+| 1132   	| 4    	| UINT   	| TunnelType                  			|                	
+| 1136   	| 4    	| UINT   	| MediaType                   			|                	
+| 1140   	| 4    	| UINT   	| PhysicalMediumType          	|                	
+| 1144   	| 4    	| UINT   	| AccessType                  			|                	
+| 1148   	| 4    	| UINT   	| DirectionType              		 	|                	
+| 1152   	| 4    	| UINT   	| Flags									 	|                	
+| 1156   	| 4    	| UINT   	| OperStatus                  			|                	
+| 1160   	| 4    	| UINT   	| AdminStatus               		  	|                	
+| 1164   	| 4    	| UINT   	| MediaConnectState           	|                	
+| 1168   	| 16   	| GUID   	| NetworkGuid                 		|                	
+| 1184   	| 4    	| UINT   	| ConnectionType             	 	|                	
+| 1188   	| 4    	| XXX    	| XXX                        			 	|                	
+| 1192   	| 8    	| UINT64 	| TransmitLinkSpeed       	    	|                	
+| 1200   	| 8    	| UINT64 	| ReceiveLinkSpeed           	 	|                	
+| 1208   	| 8    	| UINT64 	| InOctets                 			   	|                	
+| 1216   	| 8    	| UINT64 	| InUcastPkts                 			|                		
+| 1224   	| 8    	| UINT64 	| InNUcastPkts               		 	|                			
+| 1232   	| 8    	| UINT64 	| InDiscards                  			|               		 	
+| 1240   	| 8    	| UINT64 	| InErrors                   			 	|                			
+| 1248   	| 8    	| UINT64 	| InUnknownProtos             		|                			
+| 1256   	| 8    	| UINT64 	| InUcastOctets               			| Received bytes 	
+| 1264   	| 8    	| UINT64 	| InMulticastOctets           		|                	
+| 1272   	| 8    	| UINT64 	| InBroadcastOctets           		|                	
+| 1280   	| 8    	| UINT64 	| OutOctets                   			|                	
+| 1288   	| 8    	| UINT64 	| OutUcastPkts              		  	|                	
+| 1296   	| 8    	| UINT64 	| OutNUcastPkts               		|                	
+| 1304   	| 8    	| UINT64 	| OutDiscards                 			|
+| 1312   	| 8    	| UINT64 	| OutErrors                   			|                	
+| 1320   	| 8    	| UINT64 	| OutUcastOctets              		| Sent Bytes
+| 1328   	| 8    	| UINT64 	| OutMulticastOctets          		|                	
+| 1336   	| 8    	| UINT64 	| OutBroadcastOctets          	|                	
+| 1344   	| 8    	| UINT64 	| OutQLen                     			|                	
   ----------------------------------------------------------------------------------------
-  Offset Size Type   Description                     Comment
-  ----------------------------------------------------------------------------------------
-  0        8  INT64  InterfaceLuid 
-  8        4  UINT   InterfaceIndex
-  12      16  GUID   InterfaceGuid
-  28     514  WSTR   Alias   
-  542    514  WSTR   Description                     Friendly name
-  1056     4  UINT   PhysicalAddressLength
-  1060    32  BYTE   PhysicalAddress                 MAC address
-  1092    32  BYTE   PermanentPhysicalAddress        MAC address
-  1124     4  UINT   Mtu
-  1128     4  UINT   Type ( IFTYPE )
-  1132     4  UINT   TunnelType
-  1136     4  UINT   MediaType
-  1140     4  UINT   PhysicalMediumType
-  1144     4  UINT   AccessType   
-  1148     4  UINT   DirectionType
-  1152     4  UINT   InterfaceAndOperStatusFlags
-  1156     4  UINT   OperStatus
-  1160     4  UINT   AdminStatus
-  1164     4  UINT   MediaConnectState
-  1168    16  GUID   NetworkGuid
-  1184     4  UINT   ConnectionType
-  1188     4  ----   ----                            Padding for x64 alignment
-  1192     8  UINT64 TransmitLinkSpeed
-  1200     8  UINT64 ReceiveLinkSpeed
-  1208     8  UINT64 InOctets                        Received Bytes
-  1216     8  UINT64 InUcastPkts
-  1224     8  UINT64 InNUcastPkts
-  1232     8  UINT64 InDiscards
-  1240     8  UINT64 InErrors
-  1248     8  UINT64 InUnknownProtos
-  1256     8  UINT64 InUcastOctets                   Received bytes
-  1264     8  UINT64 InMulticastOctets
-  1272     8  UINT64 InBroadcastOctets
-  1280     8  UINT64 OutOctets                       Sent Bytes
-  1288     8  UINT64 OutUcastPkts
-  1296     8  UINT64 OutNUcastPkts
-  1304     8  UINT64 OutDiscards
-  1312     8  UINT64 OutErrors
-  1320     8  UINT64 OutUcastOctets                  Sent Bytes
-  1328     8  UINT64 OutMulticastOctets
-  1336     8  UINT64 OutBroadcastOctets
-  1344     8  UINT64 OutQLen
-  ----------------------------------------------------------------------------------------
-  1352 bytes in total + 16 extra bytes follow
-  ----------------------------------------------------------------------------------------
-  1352     8  PTR    Pointer to InUcastOctets
-  1360     8  PTR    Pointer to OutUcastOctets             
-  ----------------------------------------------------------------------------------------
+   TOTAL:  1352 bytes 
 
 */
 class NetworkAnalyzer ; Author: Leon Morten Richter
@@ -64,8 +59,16 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 	
 	/*
 	Create a new instance of NetworkAnalyzer.
+	
+	This Class can either be instantiated with interfaceName set to null or to zero or with an interface name.
+	If a interface name is provided the class will select the matching interface id.
+	
+	Examples:
+	new NetWorkAnalyzer("Realtek PCIe GbE Family Controller")
+	new NetWorkAnalyzer()
+	
 	*/
-	__New()
+	__New(interfaceName:=False)
 	{
 		; Load library for better performance
 		this.lib := DllCall( "LoadLibrary", "Str","Iphlpapi.dll", "Ptr" )
@@ -76,8 +79,18 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 		; Create MIB Struct and set all values to zero
 		this.mib_addr:= this.CreateMIB_IFROW2()
 		
-		; Set the interface | TODO: add the possibility to set interface by name
-		this.interfaceId:= this.GetBestInterface()
+		; Set the interface, either by name for by best match
+		this.interfaceId:= (interfaceName) ? this.GetInterfaceByName(interfaceName) :  this.GetBestInterface()
+
+		if (this.interfaceId<1)
+		{
+			MsgBox, 48, Warning, Could not bind to interface. , 3
+		}
+		; Set refresh timestamp to 0
+		this.timestamp := 0
+		
+		; Call GetNetworkStatus once on instantiation to prevent garbage values on first call
+		this.GetNetworkStatus(Rx, Tx, RxBPS, TxBPS)
 	}
 	
 	/*
@@ -114,9 +127,13 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 	/*
 	Performs a call to the GetIfEntry2 DLL.
 	!!! This method requires Windows Vista or higher !!!
+	Stores multiple values by reference.
+	ExitCode is 0 on success and != 0 on error.
 	*/
-	GetNetworkStatus()
+	GetNetworkStatus(ByRef Rx, ByRef Tx, ByRef RxBPS, ByRef TxBPS)
 	{
+		Local OldRx, OldTx, OldTimestamp
+		; backup old RX / TX values for comparism
 		OldRx := NumGet( this.mib_addr+1256, "Int64" )
 		OldTx := NumGet( this.mib_addr+1320, "Int64" )
 		
@@ -125,15 +142,27 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 		if (ErrorLevel)
 		{
 			this.SetToZero(this.mib_addr)
-			return 0
+			return -1
 		} 
 		
-		NewRx := NumGet( this.mib_addr+1256, "Int64" )
-		NewTx := NumGet( this.mib_addr+1320, "Int64" )
+		Rx := NumGet( this.mib_addr+1256, "Int64" )
+		Tx := NumGet( this.mib_addr+1320, "Int64" )
 		
-		MsgBox, %OldRx% | %OldTx% | %NewRx% | %NewTx%
-		return 10
-	
+		; On first call there isnt any meaningful information 
+		if (this.timestamp == 0)
+		{
+			this.timestamp:= this.GetCurrentSystemTime()
+			return -2
+		}
+		
+		; Return stats starting with the second method call
+		OldTimestamp:= this.timestamp
+		this.timestamp:= this.GetCurrentSystemTime()
+		
+		RxBPS := Round( ( ( Rx-OldRx ) / 1000 ) / ( (this.timestamp - OldTimestamp) /1000 ) * 1000 )
+		TxBPS := Round( ( ( Tx-OldTx ) / 1000 ) / ( (this.timestamp - OldTimestamp) /1000 ) * 1000 ) 
+		
+		return 0
 	}
 	
 	/*
@@ -174,12 +203,44 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 	
 	/*
 	Get the index of an interface by name.
+	Returns negative value on error.
+	Returns matching interface id on success.
 	*/
 	GetInterfaceByName(name)
 	{
+		Local interfaceCount, interfaceName
+		; Get number of current interfaces
+		DllCall( "iphlpapi\GetNumberOfInterfaces", "PtrP",interfaceCount )	
+		
+		; Loop over each interface and check if it's name matches %name%
+		Loop % interfaceCount
+		{
+			; Reset InterfaceLuid
+			NumPut( 0, this.mib_addr, "Int64" )
+			; Put current Interface ID into MIB struct
+			NumPut( A_Index, this.mib_addr+8 , "UInt")
+			; Get Network information for the selected Interface ID
+			DllCall( "iphlpapi\GetIfEntry2", "Ptr", this.mib_addr)
+			; Check if the interface name matches the target name
+			interfaceName:= StrGet( this.mib_addr+542, "UTF-16" )
+			if (interfaceName == name)
+			{
+				return A_Index
+			}
+		}
+		return -1
 	}
 	
-	
+	/*
+	Get the current System time in order to calculate bytes per second.
+	The information is in Coordinated Universal Time (UTC) format.
+	*/
+	GetCurrentSystemTime()
+	{
+		Local timestamp
+		ErrorLevel:= DllCall( "GetSystemTimeAsFileTime", "Int64P",timestamp)
+		return timestamp // 10000
+	}
 }
 
 
