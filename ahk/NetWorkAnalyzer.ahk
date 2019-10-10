@@ -6,51 +6,50 @@ Nearly every functionality is based on the MIB_IFROW2  Struct.
 __________________________________________________________________________________________
  
   STRUCTURE MIB_IFROW2 ( MSDN https://docs.microsoft.com/de-de/windows/win32/api/netioapi/ns-netioapi-mib_if_row2?redirectedfrom=MSDN)
-| Offset 	| Size 	| Type   	| Description             		    	| Notes          	
-|--------	|------	|--------	|-----------------------------	|----------------	
-| 0      		| 8    	| INT64  	| InterfaceLuid               			|                	
-| 8   		   	| 4    	| UINT   	| InterfaceIndex          		    	|                	
-| 12   	  	| 16   	| GUID   	| InterfaceGuid          		     	|                	
-| 28   	  	| 514  	| WSTR   	| Alias                       				|                	
-| 542    	| 514  	| WSTR   	| Description                		 	|                	
-| 1056   	| 4    	| UINT   	| PhysicalAddressLength       	|                	
-| 1060   	| 32   	| BYTE   	| PhysicalAddress             		|                	
-| 1092   	| 32   	| BYTE   	| PermanentPhysicalAddress   |                	
-| 1124   	| 4    	| UINT   	| Mtu                         				|                	
-| 1128   	| 4    	| UINT   	| Type ( IFTYPE )           		  	|                	
-| 1132   	| 4    	| UINT   	| TunnelType                  			|                	
-| 1136   	| 4    	| UINT   	| MediaType                   			|                	
-| 1140   	| 4    	| UINT   	| PhysicalMediumType          	|                	
-| 1144   	| 4    	| UINT   	| AccessType                  			|                	
-| 1148   	| 4    	| UINT   	| DirectionType              		 	|                	
-| 1152   	| 4    	| UINT   	| Flags									 	|                	
-| 1156   	| 4    	| UINT   	| OperStatus                  			|                	
-| 1160   	| 4    	| UINT   	| AdminStatus               		  	|                	
-| 1164   	| 4    	| UINT   	| MediaConnectState           	|                	
-| 1168   	| 16   	| GUID   	| NetworkGuid                 		|                	
-| 1184   	| 4    	| UINT   	| ConnectionType             	 	|                	
-| 1188   	| 4    	| XXX    	| XXX                        			 	|                	
-| 1192   	| 8    	| UINT64 	| TransmitLinkSpeed       	    	|                	
-| 1200   	| 8    	| UINT64 	| ReceiveLinkSpeed           	 	|                	
-| 1208   	| 8    	| UINT64 	| InOctets                 			   	|                	
-| 1216   	| 8    	| UINT64 	| InUcastPkts                 			|                		
-| 1224   	| 8    	| UINT64 	| InNUcastPkts               		 	|                			
-| 1232   	| 8    	| UINT64 	| InDiscards                  			|               		 	
-| 1240   	| 8    	| UINT64 	| InErrors                   			 	|                			
-| 1248   	| 8    	| UINT64 	| InUnknownProtos             		|                			
-| 1256   	| 8    	| UINT64 	| InUcastOctets               			| Received bytes 	
-| 1264   	| 8    	| UINT64 	| InMulticastOctets           		|                	
-| 1272   	| 8    	| UINT64 	| InBroadcastOctets           		|                	
-| 1280   	| 8    	| UINT64 	| OutOctets                   			|                	
-| 1288   	| 8    	| UINT64 	| OutUcastPkts              		  	|                	
-| 1296   	| 8    	| UINT64 	| OutNUcastPkts               		|                	
-| 1304   	| 8    	| UINT64 	| OutDiscards                 			|
-| 1312   	| 8    	| UINT64 	| OutErrors                   			|                	
-| 1320   	| 8    	| UINT64 	| OutUcastOctets              		| Sent Bytes
-| 1328   	| 8    	| UINT64 	| OutMulticastOctets          		|                	
-| 1336   	| 8    	| UINT64 	| OutBroadcastOctets          	|                	
-| 1344   	| 8    	| UINT64 	| OutQLen                     			|                	
-  ----------------------------------------------------------------------------------------
+| Offset | Size | Type   | Description                 | Notes          |
+|--------|------|--------|-----------------------------|----------------|
+| 0      | 8    | INT64  | InterfaceLuid               |                |
+| 8      | 4    | UINT   | InterfaceIndex              |                |
+| 12     | 16   | GUID   | InterfaceGuid               |                |
+| 28     | 514  | WSTR   | Alias                       |                |
+| 542    | 514  | WSTR   | Description                 |                |
+| 1056   | 4    | UINT   | PhysicalAddressLength       |                |
+| 1060   | 32   | BYTE   | PhysicalAddress             |                |
+| 1092   | 32   | BYTE   | PermanentPhysicalAddress    |                |
+| 1124   | 4    | UINT   | Mtu                         |                |
+| 1128   | 4    | UINT   | Type ( IFTYPE )             |                |
+| 1132   | 4    | UINT   | TunnelType                  |                |
+| 1136   | 4    | UINT   | MediaType                   |                |
+| 1140   | 4    | UINT   | PhysicalMediumType          |                |
+| 1144   | 4    | UINT   | AccessType                  |                |
+| 1148   | 4    | UINT   | DirectionType               |                |
+| 1152   | 4    | UINT   | InterfaceAndOperStatusFlags |                |
+| 1156   | 4    | UINT   | OperStatus                  |                |
+| 1160   | 4    | UINT   | AdminStatus                 |                |
+| 1164   | 4    | UINT   | MediaConnectState           |                |
+| 1168   | 16   | GUID   | NetworkGuid                 |                |
+| 1184   | 4    | UINT   | ConnectionType              |                |
+| 1188   | 4    | XXX    | XXX                         |                |
+| 1192   | 8    | UINT64 | TransmitLinkSpeed           |                |
+| 1200   | 8    | UINT64 | ReceiveLinkSpeed            |                |
+| 1208   | 8    | UINT64 | InOctets                    |                |
+| 1216   | 8    | UINT64 | InUcastPkts                 |                |
+| 1224   | 8    | UINT64 | InNUcastPkts                |                |
+| 1232   | 8    | UINT64 | InDiscards                  |                |
+| 1240   | 8    | UINT64 | InErrors                    |                |
+| 1248   | 8    | UINT64 | InUnknownProtos             |                |
+| 1256   | 8    | UINT64 | InUcastOctets               | Received bytes |
+| 1264   | 8    | UINT64 | InMulticastOctets           |                |
+| 1272   | 8    | UINT64 | InBroadcastOctets           |                |
+| 1280   | 8    | UINT64 | OutOctets                   |                |
+| 1288   | 8    | UINT64 | OutUcastPkts                |                |
+| 1296   | 8    | UINT64 | OutNUcastPkts               |                |
+| 1304   | 8    | UINT64 | OutDiscards                 |                |
+| 1312   | 8    | UINT64 | OutErrors                   |                |
+| 1320   | 8    | UINT64 | OutUcastOctets              | Sent Bytes     |
+| 1328   | 8    | UINT64 | OutMulticastOctets          |                |
+| 1336   | 8    | UINT64 | OutBroadcastOctets          |                |
+| 1344   | 8    | UINT64 | OutQLen                     |                |
    TOTAL:  1352 bytes 
 
 */
