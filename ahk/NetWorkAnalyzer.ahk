@@ -89,7 +89,7 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 		this.timestamp := 0
 		
 		; Call GetNetworkStatus once on instantiation to prevent garbage values on first call
-		this.GetNetworkStatus(Rx, Tx, RxBPS, TxBPS)
+		this.GetNetworkSpeed(Rx, Tx, RxBPS, TxBPS)
 	}
 	
 	/*
@@ -129,7 +129,7 @@ class NetworkAnalyzer ; Author: Leon Morten Richter
 	Stores multiple values by reference.
 	ExitCode is 0 on success and != 0 on error.
 	*/
-	GetNetworkStatus(ByRef Rx, ByRef Tx, ByRef RxBPS, ByRef TxBPS)
+	GetNetworkSpeed(ByRef Rx, ByRef Tx, ByRef RxBPS, ByRef TxBPS)
 	{
 		Local OldRx, OldTx, OldTimestamp
 		; backup old RX / TX values for comparism
