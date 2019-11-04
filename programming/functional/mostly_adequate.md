@@ -3,7 +3,7 @@
 I will use JS and Python to implement some of the examples.
 
 # Chapter 3
-I want my functions to be ** pure**, which means that they shouldn't have any ** side effects**. Such side effects is any interaction with the world outside of a function. Examples could be:
+I want my functions to be **pure**, which means that they shouldn't have any **side effects**. Such side effects is any interaction with the world outside of a function. Examples could be:
 
 - file system changes
 - database changes
@@ -12,7 +12,7 @@ I want my functions to be ** pure**, which means that they shouldn't have any **
 
 It is not forbidden to use functions with side effects, but when I do, I should do it in a controlled way(Monads, functors).
 
-Also ** pure functions ** must always return the same output given the same input.
+Also **pure functions** must always return the same output given the same input.
 
 # Memoization
 This is a caching strategy. Functions that are pure can easily be cached by just memorizing their prior result.
@@ -62,7 +62,7 @@ print(a, b, c, d, same_result)  # 0 1 4 9 [16, 16, 16, 16, 16]
 
 # Chapter 4
 Currying is a concept of calling functions. The concept is quite simple:
-I can call a function with fewer arguments that it actually expects. It then returns a function that takes the remaining arguments. Currying functions are called ** higher order function**, because they take or return a function.
+I can call a function with fewer arguments that it actually expects. It then returns a function that takes the remaining arguments. Currying functions are called **higher order function**, because they take or return a function.
 
 ```python
 
@@ -80,8 +80,8 @@ print(add10(90))  # 100
 
 ```
 When I first read about currying I got confused with **partial functions**. A pattern that I like and that I used often before. Those are two similar, but ** not the same ** concepts.
-***Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.***
-So partial application transforms a function from *n - ary * to * (x - n) - ary *, where currying from *n-ary * to * n \* (1-ary)*. Partial application just wraps the old function, whereas currying creates ** new functions**.
+**Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.**
+So partial application transforms a function from *n - ary* to *(x - n) - ary*, where currying from *n-ary* to *n \* 1-ary)*. Partial application just wraps the old function, whereas currying creates **new functions**.
 
 ```python
 import traceback
