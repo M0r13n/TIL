@@ -3,7 +3,7 @@
 I will use JS and Python to implement some of the examples.
 
 # Chapter 3
-I want my functions to be **pure**, which means that they shouldn't have any **side effects**. Such side effects is any interaction with the world outside of a function. Examples could be:
+I want my functions to be **pure**, which means that they shouldn't have any **side effects**. Such side effects are any interactions with the world outside of a function. Examples could be:
 
 - file system changes
 - database changes
