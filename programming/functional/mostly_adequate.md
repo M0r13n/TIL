@@ -79,7 +79,7 @@ print(incr(2))  # 3
 print(add10(90))  # 100
 
 ```
-When I first read about currying I got confused with **partial functions**. A pattern that I like and that I used often before. Those are two similar, but ** not the same ** concepts.
+When I first read about currying I got confused with **partial functions**. A pattern that I like and that I used often before. Those are two similar, but **not the same ** concepts.
 **Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.**
 So partial application transforms a function from *n - ary* to *(x - n) - ary*, where currying from *n-ary* to *n \* 1-ary)*. Partial application just wraps the old function, whereas currying creates **new functions**.
 
