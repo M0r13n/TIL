@@ -107,3 +107,79 @@ print(partial(some_func, 1))  # 1-2-3, call stack is 2 levels deep
 print(curry_func(1)(2)(3))  # 1-2-3, call stack is 3 levels deep
 
 ```
+
+# Chapter 5 - Composing
+
+Composition chains functions together and acts like a pipe. Data flows from function to function and is processed in each function. Functions that never mention the data upon they operate are called **pointfree**.
+
+A pseudocode composition could like this: `(f, g, h)= > x = > f(g(h(x)))`. We have three functions that are chained. Notice that they are written from left to right `f, g, h`, but are called from right to left `f(g(h(x)))`. `x` is the data that is piped through the functions. **Important:**Every function must take the same number of arguments and each function must return exactly the same number of values, as it takes as input. Otherwise the chain will break.
+
+Lets take a look at some examples.
+
+```python
+def compose_two_funcs(f, g):
+    return lambda x: f(g(x))
+
+
+def mult2(x):
+    return x * 2
+
+
+def add1(x):
+    return x + 1
+
+
+# f, g => f(g(x))
+add_mult=compose_two_funcs(mult2, add1)
+
+assert add_mult(10) == 22  # True
+
+```
+
+Now lets compose *n* functions
+
+```python
+def compose_n_funcs(*funcs) -> callable:
+    """
+    function: a function that take two functions as input and chains them together -> simple composition
+    sequence: a list of functions
+    inital: the value of x
+
+    f, g, h => x +> f(g(h(x))) <=> compose(f, compose(g, h))
+    """
+    return reduce(lambda f, g: lambda x: f(g(x)), funcs, lambda x: x)
+```
+
+Real world example. (Not really!)
+```python
+from functools import reduce
+
+a = {'name': 'Opel', 'price': 1}
+b = {'name': 'Porsche', 'price': 10}
+c = {'name': 'Ferrari', 'price': 12}
+
+cars = [a, b, c]
+
+
+def compose(*funcs):
+    return reduce(lambda f, g: lambda x: f(g(x)), funcs, lambda x: x)
+
+
+def add(x, y):
+    return x + y
+
+
+def price(x):
+    return x['price']
+
+
+average = lambda xs: reduce(add, xs) / len(xs)
+prices = lambda car_list: map(lambda car: car['price'], car_list)
+
+average_value = compose(average, list, prices)
+
+print(average_value(cars))
+
+```
+
+
