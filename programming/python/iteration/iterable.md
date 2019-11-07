@@ -6,6 +6,7 @@
 - thats why the most common iterators return self in their `__iter__` method
 - `__iter__` is only called **once**
 - `__next__` is called in **every** iteration
+- The big difference between yield and a return statement is that on reaching a yield the generator’s state of execution is suspended and local variables are preserved.
 
 ## Code
 
