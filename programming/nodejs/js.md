@@ -2,7 +2,9 @@
 
 ### Usefull
 
-`dir` but for JS: `Object.keys(object)`
+- `dir` but for JS: `Object.keys(object)`
+- default operator which acts like pythons or when used inside a declaration: `let x = process.argv[2] || 'some default'`
+
 
 
 ### Iterating over arrays:
