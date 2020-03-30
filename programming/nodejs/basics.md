@@ -19,3 +19,6 @@ npm install
 ```
 
 
+### Env
+create a `.env` file. Load its content by `require('dotenv').config;`
+
