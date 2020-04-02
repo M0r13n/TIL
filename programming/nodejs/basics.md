@@ -87,3 +87,17 @@ Then setup handlebars to use the correct layouts and partials:
 --> https://stackoverflow.com/questions/16385173/node-js-express-handlebars-js-partial-views
 
 --> https://github.com/ericf/express-handlebars/issues/134
+
+
+### Form Validation
+https://stackoverflow.com/questions/55772477/how-to-implement-validation-in-a-separate-file-using-express-validator
+
+### Session + Locals
+Middleware: express-session
+Response.locals -> is available in **every** template.
+```js
+app.use((req, res, next) => {
+  res.locals.authenticated = req.session && req.session.authenticated;
+  next();
+})
+```
